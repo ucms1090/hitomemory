@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateGroups < ActiveRecord::Migration[6.1]
+class DeviseCreateMemories < ActiveRecord::Migration[6.1]
   def change
-    create_table :groups do |t|
+    create_table :memories do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -31,15 +31,17 @@ class DeviseCreateGroups < ActiveRecord::Migration[6.1]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-      t.string :name, null: false
+      t.integer :tag_id
+      t.string :memory_name, null: false
+      t.string :content
 
 
       t.timestamps null: false
     end
 
-    add_index :groups, :email,                unique: true
-    add_index :groups, :reset_password_token, unique: true
-    # add_index :groups, :confirmation_token,   unique: true
-    # add_index :groups, :unlock_token,         unique: true
+    add_index :memories, :email,                unique: true
+    add_index :memories, :reset_password_token, unique: true
+    # add_index :memories, :confirmation_token,   unique: true
+    # add_index :memories, :unlock_token,         unique: true
   end
 end
