@@ -33,7 +33,9 @@ class DeviseCreateMemories < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
       t.integer :tag_id
       t.string :memory_name, null: false
+      t.string :title
       t.string :content
+      t.datetime :start_time
 
 
       t.timestamps null: false
