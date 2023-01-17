@@ -5,6 +5,12 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
+  devise_for :groups, skip: [:passwords], controllers: {
+    registrations: "public/groups/registrations",
+    sessions: 'public/groups/sessions'
+  }
+
+
   scope module: 'public' do
     resource :users, only: [:edit, :show, :update, :create, :destroy]
   end

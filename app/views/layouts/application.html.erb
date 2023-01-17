@@ -12,7 +12,9 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
+      <% if group_signed_in? %>
+        <%= link_to 'グループログアウト', destroy_group_session_path, method: :delete %>
+      <% elsif user_signed_in? %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'ログイン', new_user_session_path %>
