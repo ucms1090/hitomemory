@@ -3,4 +3,8 @@ class Memory < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_one_attached :thumbnail
+  has_one_attached :memory_image
+
 end

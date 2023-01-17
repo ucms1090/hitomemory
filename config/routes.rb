@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-
   devise_for :users, skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
+    registrations: "public/users/registrations",
+    sessions: 'public/users/sessions'
   }
 
   devise_for :memories, skip: [:passwords], controllers: {
@@ -12,7 +11,10 @@ Rails.application.routes.draw do
   }
 
   scope module: 'public' do
-    resource :users, only: [:edit, :show, :update, :create, :destroy]
+    resource :users, only: [:show], as: :user_root
+    resource :users, only: [:edit, :update, :create, :destroy]
+    get 'memories/index', as: :memory_root
+    resources :memories, except: [:index]
   end
 
   root 'homes#top'
