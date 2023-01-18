@@ -1,2 +1,24 @@
-<h1>Public::Memories#show</h1>
-<p>Find me in app/views/public/memories/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<div class="show">
+
+  <p>
+    <strong>タイトル</strong>
+    <%= @memory.title %>
+  </p>
+
+  <p>
+    <strong>内容</strong>
+    <%= @memory.content %>
+  </p>
+
+  <p>
+    <strong>日時</strong>
+    <%= @memory.start_time.strftime("%m-%d") %>
+  </p>
+
+  <%= link_to '編集', edit_memory_path(@memory.id) %>
+  <%= link_to '消去', memory_path(@memory.id), method: :delete, data: { confirm: '本当に?' } %>
+  <%= link_to '戻る', memory_root_path %>
+
+</div>

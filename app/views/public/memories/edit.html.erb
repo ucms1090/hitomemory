@@ -1,2 +1,23 @@
-<h1>Public::Memories#edit</h1>
-<p>Find me in app/views/public/memories/edit.html.erb</p>
+<%= form_with(model: @memory, local: true) do |f| %>
+
+  <div class="title">
+    <div class="form-tag">タイトル</div>
+    <%= f.text_field :title %>
+  </div>
+
+
+  <div class="content">
+    <div class="form-tag">内容</div>
+    <%= f.text_field :content %>
+  </div>
+
+  <div class="time">
+    <div class="form-tag">時間</div>
+    <%= f.datetime_select :start_time %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+
+<% end %>
