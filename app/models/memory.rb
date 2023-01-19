@@ -7,4 +7,6 @@ class Memory < ApplicationRecord
   has_one_attached :thumbnail
   has_one_attached :memory_image
 
+  devise :database_authenticatable, authentication_keys: [:memory_name]
+
 end

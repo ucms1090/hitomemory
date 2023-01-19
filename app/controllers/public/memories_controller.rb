@@ -40,7 +40,7 @@ class Public::MemoriesController < ApplicationController
   private
 
   def memory_params
-    params.require(:memory).permit(:tag_id, :title, :content, :start_time)
+    params.require(:memory).permit(:post_id, :email)
   end
 
 end
