@@ -4,9 +4,12 @@ class Public::Memories::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super
+    if MemoryUser.where(user: current_user, memory_id: params[:memory_id]).blank?
+      MemoryUser.create(user: current_user, memory_id: params[:memory_id])
+    end
+  end
 
   # POST /resource/sign_in
   # def create

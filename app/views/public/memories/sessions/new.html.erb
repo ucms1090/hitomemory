@@ -28,6 +28,12 @@
     <% end %>
   </div>
 
+  <div class="field">
+    <%= f.fields_for :memory_id do |i| %>
+      <%= i.hidden_field :memory_id, :value => params[:memory_id] %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
