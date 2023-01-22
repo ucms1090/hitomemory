@@ -1,0 +1,8 @@
+<%= search_form_for @q, url: memories_search_path do |f| %>
+  <%= f.search_field :memory_name_cont %>
+  <%= f.submit %>
+<% end %>
+
+<% @memory.each do |memory| %>
+  <%= link_to memory.memory_name, new_memory_session_path(memory_name: memory.memory_name) %>
+<% end %>

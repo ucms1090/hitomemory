@@ -1,10 +1,14 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :memory_name %><br />
-    <%= f.text_field :memory_name, autofocus: true, autocomplete: "memory_name" %>
-  </div>
+  <% if params[:memory_name].present? %>
+    <%= f.hidden_field :memory_name, :value => params[:memory_name] %>
+  <% else %>
+    <div class="field">
+      <%= f.label :memory_name %><br />
+      <%= f.text_field :memory_name, autofocus: true, autocomplete: "memory_name" %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :password %><br />
@@ -17,6 +21,12 @@
       <%= f.label :remember_me %>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= f.fields_for :memory_users do |i| %>
+      <%= i.hidden_field :user_id, :value => current_user.id %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Log in" %>

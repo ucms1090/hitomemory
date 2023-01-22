@@ -9,4 +9,8 @@ class Memory < ApplicationRecord
 
   devise :database_authenticatable, authentication_keys: [:memory_name]
 
+  has_many :users, through: :memory_users
+  has_many :memory_users
+
+
 end

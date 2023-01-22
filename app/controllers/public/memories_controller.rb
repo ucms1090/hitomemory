@@ -1,5 +1,11 @@
 class Public::MemoriesController < ApplicationController
 
+  def search
+    @memories = Memory.all
+    @q = Memory.ransack(params[:q])
+    @memory = @q.result
+  end
+
   def index
     @memories = Memory.all
     @memory = Memory.new

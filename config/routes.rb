@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   scope module: 'public' do
     resource :users, only: [:show], as: :user_root
     resource :users, only: [:edit, :update, :create, :destroy]
+    get 'memories/search'
     resources :memories
     get 'posts/index', as: :memory_root
     resources :posts, except: [:index]

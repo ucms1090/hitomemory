@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
   has_one_attached :user_image
 
+  has_many :memories, through: :memory_users
+  has_many :memory_users
+
 end
