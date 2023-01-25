@@ -1,2 +1,31 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<%= form_with(model: @post, local: true) do |f| %>
+
+  <div class="title">
+    <div class="form-tag">タイトル</div>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="content">
+    <div class="form-tag">内容</div>
+    <%= f.text_field :content %>
+  </div>
+
+  <div class="content">
+    <div class="form-tag">画像</div>
+    <%= f.file_field :post_image, accept: "image/*" %>
+  </div>
+
+  <div class="time">
+    <div class="form-tag">時間</div>
+    <%= f.datetime_select :start_time %>
+  </div>
+
+  <%= f.hidden_field :start_time, :value => params[:start_time] %>
+
+  <!--hidden_field post_id-->
+
+ <div class="submit">
+    <%= f.submit %>
+ </div>
+
+<% end %>

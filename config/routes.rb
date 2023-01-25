@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     get 'memories/search'
     resources :memories
     get 'posts/index', as: :memory_root
-    resources :posts, except: [:index]
+    resources :posts, except: [:index] do
+      resources :comments , only: [:create, :edit, :destroy]
+    end
   end
 
   root 'homes#top'

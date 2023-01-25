@@ -1,77 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <div class="toppage">
-  <h1 class="top">カレンダー</h1>
-  <br>
-
   <div class="row">
-
-    <div class="col-md-4">
-      <div class="schedule">今後の予定一覧</div>
-        <table class="table">
-          <thead class="thead-light">
-            <tr>
-              <th>タイトル</th>
-              <th>日程</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @posts.each do |posts| %>
-              <tr>
-                <td><%= link_to posts.title , posts %></td>
-                <td><%= posts.start_time %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-
-
-
-      <%= form_with(model: @post, local: true) do |f| %>
-
-        <div class="title">
-          <div class="form-tag">タイトル</div>
-          <%= f.text_field :title %>
-        </div>
-
-        <div class="content">
-          <div class="form-tag">内容</div>
-          <%= f.text_field :content %>
-        </div>
-
-        <div class="time">
-          <div class="form-tag">時間</div>
-          <%= f.datetime_select :start_time %>
-        </div>
-
-        <!--hidden_field post_id-->
-
-       <div class="submit">
-          <%= f.submit %>
-       </div>
-
-      <% end %>
-
-    </div>
-
-    <br>
-
-    <br>
-
-    <div class="col-md-8">
+    <div class="col-md-12">
       <%= month_calendar events: @posts do |date, posts| %>
 
         <%= date.day %>
 
         <% posts.each do |posts| %>
           <div>
-            <%= link_to posts.title, posts %>
+            <%= link_to image_tag(posts.get_post_image(100,100)), posts %>
           </div>
         <% end %>
 
       <% end %>
     </div>
-
   </div>
 </div>

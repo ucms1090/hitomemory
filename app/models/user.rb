@@ -10,5 +10,7 @@ class User < ApplicationRecord
 
   has_many :memories, through: :memory_users
   has_many :memory_users
+  has_many :posts
+  has_many :comments
 
 end
