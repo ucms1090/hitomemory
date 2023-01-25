@@ -28,6 +28,12 @@
               <%= link_to 'メモリーログアウト', destroy_memory_session_path, method: :delete, class: "nav-link" %>
             </li>
             <li class="nav-item">
+              <%= link_to '一覧(カレンダー)', memory_root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '一覧(カード)', memory_root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
               <%= link_to '記録を作成する', new_post_path, class: "nav-link" %>
             </li>
             <% elsif user_signed_in? %>

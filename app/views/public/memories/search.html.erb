@@ -3,6 +3,8 @@
   <%= f.submit %>
 <% end %>
 
-<% @memory.each do |memory| %>
-  <%= link_to memory.memory_name, new_memory_session_path(memory_name: memory.memory_name, memory_id: memory.id) %>
+<% if @q.conditions.present? %>
+  <% @memory.each do |memory| %>
+    <%= link_to memory.memory_name, new_memory_session_path(memory_name: memory.memory_name, memory_id: memory.id) %>
+  <% end %>
 <% end %>

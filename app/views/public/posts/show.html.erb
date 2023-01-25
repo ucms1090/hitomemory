@@ -26,8 +26,20 @@
   <%= link_to '消去', post_path(@post.id), method: :delete, data: { confirm: '本当に?' } %>
   <%= link_to '戻る', memory_root_path %>
 
+  <p>
+    <% @post.comments.each do |comment| %>
+      <%= comment.user.nickname %>
+      <%= comment.comment %>
+      <% if comment.user == current_user %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+      <% end %>
+    <% end %>
+  </p>
+
+
+
   <%= form_with model: [@post, @comment] do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.text_area :comment, rows: '1', placeholder: "ひとこと" %>
     <%= f.submit "送信する" %>
   <% end %>
 

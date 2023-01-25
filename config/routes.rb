@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :memories
     get 'posts/index', as: :memory_root
     resources :posts, except: [:index] do
-      resources :comments , only: [:create, :edit, :destroy]
+      resources :comments , only: [:create, :destroy]
     end
   end
 
