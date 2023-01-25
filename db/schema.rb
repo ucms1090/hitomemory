@@ -73,9 +73,10 @@ ActiveRecord::Schema.define(version: 2023_01_25_011148) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "memory_id", null: false
-    t.integer "tag_id"
+    t.integer "user_id", null: false
     t.string "title", null: false
     t.string "content", null: false
+    t.string "search_word"
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -22,17 +22,23 @@
     <%= @post.start_time %>
   </p>
 
-  <%= link_to '編集', edit_post_path(@post.id) %>
-  <%= link_to '消去', post_path(@post.id), method: :delete, data: { confirm: '本当に?' } %>
-  <%= link_to '戻る', memory_root_path %>
+  <% if @post.user_id == current_user.id %>
+    <%= link_to '編集', edit_post_path(@post.id) %>
+    <%= link_to '消去', post_path(@post.id), method: :delete, data: { confirm: '本当に?' } %>
+    <%= link_to '戻る', memory_root_path %>
+  <% end %>
 
   <p>
     <% @post.comments.each do |comment| %>
-      <%= comment.user.nickname %>
-      <%= comment.comment %>
-      <% if comment.user == current_user %>
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
-      <% end %>
+      <table>
+        <th><%= comment.user.nickname %></th>
+        <td>
+          <%= comment.comment %>
+          <% if comment.user == current_user %>
+            <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+          <% end %>
+        </td>
+      </table>
     <% end %>
   </p>
 

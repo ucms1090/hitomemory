@@ -19,10 +19,12 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.memory_id = current_memory.id
-    post.save
-    redirect_to post_path(post.id)
+    @post = Post.new(post_params)
+    @post.memory_id = current_memory.id
+    @post.user_id = current_user.id
+    @post.save
+    binding.pry
+    redirect_to post_path(@post.id)
   end
 
   def update
@@ -43,7 +45,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:memory_id, :tag_id, :title, :content, :start_time, :post_image)
+    params.require(:post).permit(:memory_id, :user_id, :search_word, :title, :content, :start_time, :post_image)
   end
 
 end
