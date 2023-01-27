@@ -1,0 +1,10 @@
+<%= search_form_for @q, url: posts_search_path do |f| %>
+  <%= f.search_field :search_word_cont %>
+  <%= f.submit %>
+<% end %>
+
+<% if @q.conditions.present? %>
+  <% @post.each do |post| %>
+    <%= link_to post.title, post_path(post.id) %>
+  <% end %>
+<% end %>

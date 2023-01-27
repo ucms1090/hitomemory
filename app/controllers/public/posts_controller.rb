@@ -1,5 +1,11 @@
 class Public::PostsController < ApplicationController
 
+  def search
+    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @post = @q.result
+  end
+
   def index
     @posts = Post.where(memory_id: current_memory.id)
     @post = Post.new
@@ -23,7 +29,6 @@ class Public::PostsController < ApplicationController
     @post.memory_id = current_memory.id
     @post.user_id = current_user.id
     @post.save
-    binding.pry
     redirect_to post_path(@post.id)
   end
 

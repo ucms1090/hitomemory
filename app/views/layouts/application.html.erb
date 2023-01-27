@@ -36,11 +36,20 @@
             <li class="nav-item">
               <%= link_to '記録を作成する', new_post_path, class: "nav-link" %>
             </li>
+            <li class="nav-item">
+              <%= link_to 'ひとこと検索', posts_search_path, class: "nav-link" %>
+            </li>
             <% elsif user_signed_in? %>
             <li class="nav-item">
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
             </li>
+            <li class="nav-item">
+              <%= link_to 'ゲストメモリーログイン', memories_guest_sign_in_path, method: :post, class: "nav-link" %>
+            </li>
             <% else %>
+            <li class="nav-item">
+              <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "nav-link" %>
+            </li>
             <li class="nav-item">
               <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
             </li>

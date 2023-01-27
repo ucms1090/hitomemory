@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   has_many :memories, through: :memory_users
   has_many :memory_users
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 end
