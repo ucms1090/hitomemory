@@ -5,6 +5,7 @@
         <table border=1>
           <th><%= post.title %></th>
           <td><%= post.content %></td>
+          <td><%= image_tag post.get_post_image(100,100) %></td>
         </table>
       <% end %>
     </div>

@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
       user_root_path
     elsif resource == :user
       root_path
+    elsif resource == :admin
+      root_path
     end
   end
 

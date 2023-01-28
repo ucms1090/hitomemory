@@ -52,6 +52,19 @@
             <li class="nav-item">
               <%= link_to 'メモリーを検索する', memories_search_path, class: "nav-link" %>
             </li>
+            <% elsif admin_signed_in? %>
+            <li class="nav-item">
+              <%= link_to '管理者ログアウト', destroy_admin_session_path, method: :delete, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'メモリー管理画面', admin_memories_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ユーザー管理画面', admin_users_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '投稿管理画面', admin_posts_path, class: "nav-link" %>
+            </li>
             <% else %>
             <li class="nav-item">
               <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "nav-link" %>
