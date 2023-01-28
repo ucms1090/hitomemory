@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <% @users.each do |user| %>
+        <table border=1>
+          <td><%= user.nickname %></td>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

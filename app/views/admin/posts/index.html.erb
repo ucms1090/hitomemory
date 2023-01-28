@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <% @posts.each do |post| %>
+        <table border=1>
+          <th><%= post.title %></th>
+          <td><%= post.content %></td>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
