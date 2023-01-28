@@ -4,6 +4,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
+    @memories = MemoryUser.where(user_id: current_user.id)
   end
 
   def guest_sign_in

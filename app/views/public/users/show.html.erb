@@ -1,8 +1,7 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<h2>マイページ</h2>
 
 <%= @user.nickname %>
 
-<%= link_to 'memory_search', memories_search_path %>
-<%= link_to 'sign_in_memory', new_memory_session_path %>
-<%= link_to 'sign_up_memory', new_memory_registration_path %>
+<% @memories.each do |memory| %>
+  <%= link_to memory.memory.memory_name, new_memory_session_path(memory_name: memory.memory.memory_name, memory_id: memory.memory.id) %>
+<% end %>
