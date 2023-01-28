@@ -34,9 +34,6 @@
               <%= link_to '一覧(カード)', memory_root_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to '記録を作成する', new_post_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
               <%= link_to 'ひとこと検索', posts_search_path, class: "nav-link" %>
             </li>
             <% elsif user_signed_in? %>

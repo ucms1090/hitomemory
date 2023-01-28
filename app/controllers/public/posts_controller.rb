@@ -13,6 +13,7 @@ class Public::PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @default_date = params[:default_date]
   end
 
   def edit
@@ -28,6 +29,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.memory_id = current_memory.id
     @post.user_id = current_user.id
+    @post.start_time = params[:post][:start_time].to_date
     @post.save
     redirect_to post_path(@post.id)
   end
@@ -50,7 +52,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:memory_id, :user_id, :search_word, :title, :content, :start_time, :post_image)
+    params.require(:post).permit(:memory_id, :user_id, :search_word, :title, :content, :post_image)
   end
 
 end

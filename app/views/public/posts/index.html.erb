@@ -6,6 +6,9 @@
       <%= month_calendar events: @posts do |date, posts| %>
 
         <%= date.day %>
+        <% if posts.blank? %>
+          <%= link_to '＋', new_post_path(default_date: date) , class: "btn btn-success" %>
+        <% end %>
 
         <% posts.each do |posts| %>
           <div>

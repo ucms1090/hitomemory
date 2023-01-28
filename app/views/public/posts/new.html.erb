@@ -20,10 +20,7 @@
     <%= f.text_field :search_word, placeholder: "思い出のひとこと（検索用）" %>
   </div>
 
-  <div class="time">
-    <div class="form-tag">時間</div>
-    <%= f.datetime_select :start_time %>
-  </div>
+  <%= f.hidden_field :start_time, value: @default_date %>
 
  <div class="submit">
     <%= f.submit %>
