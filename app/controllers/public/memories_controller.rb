@@ -1,4 +1,5 @@
 class Public::MemoriesController < ApplicationController
+  before_action :authenticate_user!
 
   def search
     @memories = Memory.all
