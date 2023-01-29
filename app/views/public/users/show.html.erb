@@ -11,7 +11,9 @@
         <h4><%= @user.nickname %></h4>
         <h4>ユーザー画像</h4>
         <h4><%= image_tag @user.get_user_image(150,150) %></h4>
-        <%= link_to 'プロフィール編集', edit_information_path, class: "btn btn-primary" %>
+          <% unless current_user.email == "guest@example.com" %>
+            <%= link_to 'プロフィール編集', edit_information_path, class: "btn btn-primary" %>
+          <% end %>
       </div>
 
       <div class="col-lg-6">

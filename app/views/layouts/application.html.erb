@@ -33,6 +33,9 @@
             <li class="nav-item">
               <%= link_to 'ひとこと検索', posts_search_path, class: "nav-link" %>
             </li>
+            <li class="nav-item">
+              <%= link_to 'マイページへ', destroy_memory_session_path, method: :delete, class: "nav-link" %>
+            </li>
             <% elsif user_signed_in? %>
             <li class="nav-item">
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -87,7 +90,7 @@
     </main>
 
     <footer class="bg-light py-5">
-      <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
+      <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - ひとめもりー</div></div>
     </footer>
 
   </body>

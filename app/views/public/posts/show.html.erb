@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
-
-<div class="card" style="width: 18rem;">
-  <%= image_tag(@post.get_post_image(500,500)) %>
-  <div class="card-body">
-    <h5 class="card-title"><%= @post.title %></h5>
-    <p class="card-text"><%= @post.content %></p>
-    <a>
-      <% if @post.user_id == current_user.id %>
-      <%= link_to '編集', edit_post_path(@post.id) %>
-      <%= link_to '消去', post_path(@post.id), method: :delete, data: { confirm: '本当に?' } %>
-      <%= link_to '戻る', memory_root_path %>
-    <% end %>
-    </a>
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: 72rem;">
+      <%= image_tag(@post.get_post_image(500,500)) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @post.title %></h5>
+        <p class="card-text"><%= @post.content %></p>
+        <a>
+          <% if @post.user_id == current_user.id %>
+          <%= link_to '編集', edit_post_path(@post.id) %>
+          <%= link_to '消去', post_path(@post.id), method: :delete, data: { confirm: '本当に?' } %>
+          <%= link_to '戻る', memory_root_path %>
+        <% end %>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <a>
   <%= form_with model: [@post, @comment] do |f| %>
