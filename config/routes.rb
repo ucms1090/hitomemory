@@ -23,7 +23,11 @@ Rails.application.routes.draw do
 
   scope module: 'public' do
     resource :users, only: [:show], as: :user_root
-    resource :users, only: [:edit, :update, :create, :destroy]
+    get 'users/information/edit', to: 'users#edit', as: 'edit_information'
+    patch 'users/information', to: 'users#update', as: 'information'
+    get 'users/unsubscribe', to: 'users#unsubscribe', as: 'unsubscribe'
+    patch 'users/withdraw', to: 'users#withdraw', as: 'withdraw'
+    resource :users, only: [:update, :create, :destroy]
     post '/users/guest_sign_in', to: 'users#guest_sign_in'
     get 'memories/search'
     resources :memories

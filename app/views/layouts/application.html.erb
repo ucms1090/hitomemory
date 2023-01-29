@@ -31,9 +31,6 @@
               <%= link_to '一覧(カレンダー)', memory_root_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to '一覧(カード)', memory_root_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
               <%= link_to 'ひとこと検索', posts_search_path, class: "nav-link" %>
             </li>
             <% elsif user_signed_in? %>
@@ -83,7 +80,9 @@
 
     <main>
       <div class="w-100" style="background-color: #eee;">
-        <%= yield %>
+        <div class="container h-100">
+          <%= yield %>
+        </div>
       </div>
     </main>
 

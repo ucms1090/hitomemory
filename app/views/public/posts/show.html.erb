@@ -1,52 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<div class="show">
-
-  <p>
-    <strong>タイトル</strong>
-    <%= @post.title %>
-  </p>
-
-  <p>
-    <strong>内容</strong>
-    <%= @post.content %>
-  </p>
-
-  <p>
-    <strong>画像</strong>
-    <%= image_tag(@post.get_post_image(200,200)) %>
-  </p>
-
-  <p>
-    <strong>日時</strong>
-    <%= @post.start_time %>
-  </p>
-
-  <% if @post.user_id == current_user.id %>
-    <%= link_to '編集', edit_post_path(@post.id) %>
-    <%= link_to '消去', post_path(@post.id), method: :delete, data: { confirm: '本当に?' } %>
-    <%= link_to '戻る', memory_root_path %>
-  <% end %>
-
-  <p>
-    <% @post.comments.each do |comment| %>
-      <table>
-        <th><%= comment.user.nickname %></th>
-        <td>
-          <%= comment.comment %>
-          <% if comment.user == current_user %>
-            <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
-          <% end %>
-        </td>
-      </table>
+<div class="card" style="width: 18rem;">
+  <%= image_tag(@post.get_post_image(500,500)) %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p class="card-text"><%= @post.content %></p>
+    <a>
+      <% if @post.user_id == current_user.id %>
+      <%= link_to '編集', edit_post_path(@post.id) %>
+      <%= link_to '消去', post_path(@post.id), method: :delete, data: { confirm: '本当に?' } %>
+      <%= link_to '戻る', memory_root_path %>
     <% end %>
-  </p>
+    </a>
+  </div>
+</div>
 
-
-
+<a>
   <%= form_with model: [@post, @comment] do |f| %>
     <%= f.text_area :comment, rows: '1', placeholder: "ひとこと" %>
     <%= f.submit "送信する" %>
   <% end %>
+</a>
 
-</div>
+<p>
+  <% @post.comments.each do |comment| %>
+    <table>
+      <th><%= comment.user.nickname %></th>
+      <td>
+        <%= comment.comment %>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+        <% end %>
+      </td>
+    </table>
+  <% end %>
+</p>

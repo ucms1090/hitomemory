@@ -1,2 +1,22 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<%= form_with(model: @user, url: information_path, method: :patch, local: true) do |f| %>
+
+  <div class="title">
+    <div class="form-tag">ニックネーム</div>
+    <%= f.text_field :nickname, autofocus: true %>
+  </div>
+
+  <div class="content">
+    <div class="form-tag">ユーザー画像</div>
+    <%= f.file_field :user_image, accept: "image/*" %>
+  </div>
+
+  <div class="content">
+    <div class="form-tag">メールアドレス</div>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+
+<% end %>
