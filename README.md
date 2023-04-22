@@ -38,7 +38,6 @@
 * カレンダー・・・・・・・・・・・simple calendar
 * ログイン周り・・・・・・・・・・devise
 * 検索・・・・・・・・・・・・・・ransack
-* 無限スクロール・・・・・・・・・kaminari jscroll
 * 実装機能リスト<br>https://docs.google.com/spreadsheets/d/1y5v3g7iGt8RNTXcP0yKDhbyhq2LeSIWgPP1VXztwldE/edit?usp=sharing
 * ｗｂｓ<br>https://docs.google.com/spreadsheets/d/14J-67rCiWr-DD-UM7Y4RTAB5D1n9S375M232hlHV39A/edit?usp=sharing
 * アプリケーション詳細設計書<br>https://docs.google.com/spreadsheets/d/1rZawv3kx0O9Mn7fAl1aM75qgijuXACiiG4u-SOUNRiY/edit?usp=sharing
